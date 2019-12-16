@@ -2,8 +2,12 @@ import sys, os
 sys.path.insert(0, os.path.abspath('..'))
 
 from automation_practice.resources.components.nav_bar_component import NavBarComponent
+from automation_practice.resources.poms.home_page import HomePage
 from .base_test import BaseTestCase
 import unittest
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 
 class NavBarTest(BaseTestCase):
 
@@ -11,3 +15,12 @@ class NavBarTest(BaseTestCase):
         
         navBar = NavBarComponent(self.driver)
         navBar.click_page_logo()
+        
+        homePage = HomePage(self.driver)
+        
+        homePage.validate_page()
+    
+    def test_open_currency_dropdown(self):
+
+        navBar = NavBarComponent(self.driver)
+        navBar.open_currency_dropdown()
