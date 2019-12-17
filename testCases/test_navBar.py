@@ -24,3 +24,14 @@ class NavBarTest(BaseTestCase):
 
         navBar = NavBarComponent(self.driver)
         navBar.open_currency_dropdown()
+    
+    def test_change_page_currency(self):
+
+        navBar = NavBarComponent(self.driver)
+        navBar.open_currency_dropdown()
+        navBar.select_currency("USD")
+    
+    def test_open_languages_dropdown(self):
+
+        navBar = NavBarComponent(self.driver)
+        navBar.open_langauges_dropdown()
