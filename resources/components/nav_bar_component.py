@@ -11,6 +11,8 @@ class NavBarComponent(BaseComponent):
     currency_element_locator = "//a[.='_TEMPLATE_']"
     languauges_button_locator = (By.ID, "dropdownLangauge")
     languauges_dropdown_locator = (By.CSS_SELECTOR, "div[aria-labelledby='dropdownLangauge']")
+    languauges_elements_locator = (By.CSS_SELECTOR, "div[aria-labelledby='dropdownLangauge'] > .dropdown-menu-inner > .dropdown-item")
+
 
     def __init__(self, driver):
 
@@ -51,5 +53,8 @@ class NavBarComponent(BaseComponent):
             expected_conditions.visibility_of_element_located(self.languauges_dropdown_locator)
         )
     
+    def get_available_langauges(self):
+        
+        return dict([ (langauge_element.text, langauge_element.get_attribute('id')) for langauge_element in self.driver.find_elements(*self.languauges_elements_locator) ])
 
 

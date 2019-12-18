@@ -35,3 +35,4 @@ class NavBarTest(BaseTestCase):
 
         navBar = NavBarComponent(self.driver)
         navBar.open_langauges_dropdown()
+        print(navBar.get_available_langauges())
