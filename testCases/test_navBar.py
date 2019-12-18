@@ -1,9 +1,9 @@
 import sys, os
 sys.path.insert(0, os.path.abspath('..'))
-
+import HtmlTestRunner
 from automation_practice.resources.components.nav_bar_component import NavBarComponent
 from automation_practice.resources.poms.home_page import HomePage
-from .base_test import BaseTestCase
+from base_test import BaseTestCase
 import unittest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -36,3 +36,7 @@ class NavBarTest(BaseTestCase):
         navBar = NavBarComponent(self.driver)
         navBar.open_langauges_dropdown()
         print(navBar.get_available_langauges())
+    
+if __name__ == '__main__':
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='C:\\repos\\automation_practice\\reports'))
+    

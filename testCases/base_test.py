@@ -4,7 +4,7 @@ from selenium import webdriver
 class BaseTestCase (unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Chrome("drivers\chromedriver.exe")
         self.driver.implicitly_wait(30)
         self.driver.maximize_window()
 

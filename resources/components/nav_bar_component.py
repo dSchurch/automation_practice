@@ -21,7 +21,8 @@ class NavBarComponent(BaseComponent):
     def click_page_logo(self):
 
         logoElement = WebDriverWait(self.driver, 10).until(
-            expected_conditions.visibility_of(self.nav_bar_page_logo_locator)
+            expected_conditions.visibility_of_element_located(self.nav_bar_page_logo_locator),
+            "The logo is not displayed"
         )
         logoElement.click()
 
